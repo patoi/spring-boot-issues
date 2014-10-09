@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hu.vanio.jaxws.poc;
 
 import com.sun.xml.ws.developer.JAXWSProperties;
@@ -18,10 +13,10 @@ import javax.xml.ws.soap.MTOMFeature;
 import javax.xml.ws.soap.SOAPBinding;
 
 /**
- *
+ * MTOM streaming app starter.
  * @author Pato Istvan <istvan.pato@vanio.hu>
  */
-public class Client {
+public class Start {
 
     public static String SERVICE_URL = "http://localhost:9999/ws/pocserver";
     public static String SERVICE_WSDL_URL = "http://localhost:9999/ws/pocserver?wsdl";
@@ -35,7 +30,7 @@ public class Client {
         QName qname = new QName("http://poc.jaxws.vanio.hu/", "PocServiceImplService");
 
         MTOMFeature mtom = new MTOMFeature(1024);
-        StreamingAttachmentFeature stf = new StreamingAttachmentFeature("/tmp", true, 4000000L);
+        StreamingAttachmentFeature stf = new StreamingAttachmentFeature("/tmp/0_tmp_client", true, 4000000L);
 
         Service service = Service.create(url, qname);
         PocService s = service.getPort(PocService.class, mtom, stf);
