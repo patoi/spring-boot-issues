@@ -48,6 +48,7 @@ public class PocServiceImpl implements PocService {
 
             /**
              * YOU MUST USE readOnce() method.
+             * In this case the parseEagerly and memoryThreshold property doesn't used!
              */
             InputStream is = dh.readOnce();
 
@@ -55,7 +56,7 @@ public class PocServiceImpl implements PocService {
              * VERY IMPORTANT! DO NOT USE dh.getInputStream() !!!
              * In that case, read complete file into memory!!!
              * Because it asumptions that, you want to read more than once the
-             * file.
+             * file, check parseEagerly and memoryThreshold property.
              */
 //          InputStream is = dh.getInputStream();
             // write to other stream (in this case a temp file)
