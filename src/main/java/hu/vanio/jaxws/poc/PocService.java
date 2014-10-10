@@ -13,9 +13,11 @@ import javax.xml.bind.annotation.XmlMimeType;
  * @author Pato Istvan <istvan.pato@vanio.hu>
  */
 @WebService
-@SOAPBinding(style = Style.RPC, use = Use.LITERAL) //optional
+@SOAPBinding(style = Style.DOCUMENT, use = Use.LITERAL) //optional
 public interface PocService {
 
     @WebMethod
-    public void fileUpload(String name, @XmlMimeType("application/octet-stream") DataHandler data);
+    public void fileUpload(String name,
+            @XmlMimeType("application/octet-stream") DataHandler data1,
+            @XmlMimeType("application/octet-stream") DataHandler data2);
 }
